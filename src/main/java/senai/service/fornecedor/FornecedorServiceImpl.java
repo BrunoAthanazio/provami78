@@ -17,21 +17,23 @@ public class FornecedorServiceImpl implements FornecedorService{
 
     @Override
     public Fornecedor buscarPorId(int id) throws SQLException {
-        return null;
+        return fornecedorRepositoryImpl.findById(id);
     }
 
     @Override
     public List<Fornecedor> buscarTodos() throws SQLException {
-        return List.of();
+        return fornecedorRepositoryImpl.list();
     }
 
     @Override
     public void atualizarFornecedor(Fornecedor fornecedor) throws SQLException {
-
+        fornecedorRepositoryImpl.findById(fornecedor.getId());
+        fornecedorRepositoryImpl.update(fornecedor);
     }
 
     @Override
     public void deletarFornecedor(int id) throws SQLException {
-
+        fornecedorRepositoryImpl.findById(id);
+        fornecedorRepositoryImpl.delete(id);
     }
 }

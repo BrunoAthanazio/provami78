@@ -55,7 +55,7 @@ public class FornecedorRepositoryImpl implements FornecedorRepository{
                 var fornecedor = new Fornecedor(id, nome, cnpj);
                 return fornecedor;
             }else{
-                throw new RuntimeException("ID do fornecedor não encontrado!");
+                throw new RuntimeException("Id do Fornecedor não encontrado!");
             }
         }
     }

@@ -224,7 +224,7 @@ public class FornecedorServiceIntegrationTest {
         RuntimeException exception = assertThrows(RuntimeException.class, ()-> {
             fornecedorService.atualizarFornecedor(fornecedor);
         });
-        assertEquals("Id do fornecedor não encontrado!", exception.getMessage());
+        assertEquals("Id do Fornecedor não encontrado!", exception.getMessage());
     }
 
     @Test
