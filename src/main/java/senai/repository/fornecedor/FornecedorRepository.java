@@ -6,13 +6,13 @@ import senai.model.Fornecedor;
 
 public interface FornecedorRepository {
 
-    public Fornecedor save(Fornecedor fornecedor) throws SQLException;
+    Fornecedor save(Fornecedor fornecedor) throws SQLException;
 
-    public Fornecedor findById(int id) throws SQLException;
+    Fornecedor findById(int id) throws SQLException;
 
-    public List<Fornecedor> list() throws SQLException;
+    List<Fornecedor> list() throws SQLException;
 
-    public void update(Fornecedor fornecedor) throws SQLException;
+    void update(Fornecedor fornecedor) throws SQLException;
 
-    public void delete(int id) throws SQLException;
+    void delete(int id) throws SQLException;
 }
