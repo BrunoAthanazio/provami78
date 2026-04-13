@@ -1,14 +1,18 @@
 package senai.service.fornecedor;
 
 import senai.model.Fornecedor;
+import senai.repository.fornecedor.FornecedorRepositoryImpl;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class FornecedorServiceImpl implements FornecedorService{
+
+    private final FornecedorRepositoryImpl  fornecedorRepositoryImpl = new FornecedorRepositoryImpl();
+
     @Override
     public Fornecedor criarFornecedor(Fornecedor fornecedor) throws SQLException {
-        return null;
+        return fornecedorRepositoryImpl.save(fornecedor);
     }
 
     @Override
