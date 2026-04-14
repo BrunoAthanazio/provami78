@@ -116,5 +116,58 @@ public class EquipamentoRepositoryImpl implements EquipamentoRepository{
             stmt.executeUpdate();
         }
     }
+
+    @Override
+    public void checkIfExistsForUpdate(int id) throws SQLException {
+        String query = """
+                SELECT id
+                FROM Equipamento;
+                """;
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(query)){
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                if(id == rs.getInt("id")){
+                    return;
+                }
+            }
+            throw new RuntimeException("Equipamento não encontrado para atualização!");
+        }
+    }
     
+    @Override
+    public void checkIfExistsForDelete(int id) throws SQLException {
+        String query = """
+                SELECT id
+                FROM Equipamento;
+                """;
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(query)){
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                if(id == rs.getInt("id")){
+                    return;
+                }
+            }
+            throw new RuntimeException("Equipamento não encontrado para exclusão!");
+        }
+    }
+
+    @Override
+    public void checkIfFornecedorExists(int fornecedorId) throws SQLException {
+        String query = """
+                SELECT id
+                FROM Fornecedor;
+                """;
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(query)){
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                if(fornecedorId == rs.getInt("id")){
+                    return;
+                }
+            }
+            throw new RuntimeException("Fornecedor inválido ou inexistente!");
+        }
+    }
 }

@@ -16,4 +16,10 @@ public interface EquipamentoRepository {
     void update(Equipamento equipamento) throws SQLException;
 
     void delete(int id) throws SQLException;
+
+    void checkIfExistsForUpdate(int id) throws SQLException;
+
+    void checkIfExistsForDelete(int id) throws SQLException;
+
+    void checkIfFornecedorExists(int fornecedorId) throws SQLException;
 }

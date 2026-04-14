@@ -12,6 +12,7 @@ public class EquipamentoServiceImpl implements EquipamentoService{
 
     @Override
     public Equipamento criarEquipamento(Equipamento equipamento) throws SQLException {
+        equipamentoRepositoryImpl.checkIfFornecedorExists(equipamento.getFornecedorId());
         return equipamentoRepositoryImpl.save(equipamento);
     }
 
@@ -27,11 +28,13 @@ public class EquipamentoServiceImpl implements EquipamentoService{
 
     @Override
     public void atualizarEquipamento(Equipamento equipamento) throws SQLException {
+        equipamentoRepositoryImpl.checkIfExistsForUpdate(equipamento.getId());
         equipamentoRepositoryImpl.update(equipamento);
     }
 
     @Override
     public void deletarEquipamento(int id) throws SQLException {
+        equipamentoRepositoryImpl.checkIfExistsForDelete(id);
         equipamentoRepositoryImpl.delete(id);
     }
 }
